@@ -30,6 +30,7 @@ function getWebpackConfig(skyPagesConfig) {
   const resolves = [
     process.cwd(),
     spaPath('node_modules'),
+    spaPath('src/app/lib'),
     outPath('node_modules')
   ];
 
@@ -93,7 +94,7 @@ function getWebpackConfig(skyPagesConfig) {
         {
           enforce: 'pre',
           loader: outPath('loader', 'sky-processor', 'preload'),
-          exclude: /node_modules/
+          exclude: /node_modules|src\/app\/lib/
         },
         {
           test: /\.s?css$/,
